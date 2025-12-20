@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root{
+  --bg-gradient: linear-gradient(90deg,#60a5fa 0%, #34d399 50%, #f97316 100%);
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.04);
+}
+
+/* Component styles layered on top of Tailwind utilities */
+@layer components {
+  .btn {
+    @apply inline-flex items-center px-4 py-2 rounded-md font-semibold text-white shadow-md transition transform;
+    background: var(--bg-gradient);
+    background-size: 200% 100%;
+  }
+
+  .btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(59,130,246,0.18);
+    background-position: 100% 0;
+  }
+
+  .card {
+    @apply bg-white/60 dark:bg-slate-800/60 rounded-xl p-4 shadow-lg transition-shadow backdrop-blur;
+    border: 1px solid var(--glass-2);
+  }
+
+  .card:hover {
+    box-shadow: 0 20px 40px rgba(16,24,40,0.12);
+    transform: translateY(-6px);
+  }
+
+  .nav-link {
+    @apply text-slate-700 dark:text-slate-200 px-3 py-2 rounded-md transition-colors;
+  }
+
+  .nav-link:hover {
+    @apply text-white;
+    background: radial-gradient(circle at 10% 20%, rgba(59,130,246,0.12), transparent 30%);
+  }
+
+  .page-hero {
+    background-image: var(--bg-gradient);
+    background-size: 400% 100%;
+    color: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+  }
+
+  .badge {
+    @apply inline-block text-sm font-medium px-3 py-1 rounded-full text-white;
+    background: linear-gradient(90deg,#10b981,#3b82f6);
+  }
+
+  input, textarea, select {
+    @apply border border-slate-200 dark:border-slate-700 rounded-md px-3 py-2 transition-shadow focus:outline-none;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    box-shadow: 0 8px 20px rgba(59,130,246,0.12);
+    transform: translateY(-1px);
+  }
+
+  /* subtle shimmer for headers or placeholders */
+  .shimmer {
+    background: linear-gradient(90deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.14) 50%, rgba(255,255,255,0.06) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+}
+
+/* Utility helpers */
+.hover-glow:hover{
+  box-shadow: 0 12px 30px rgba(59,130,246,0.16);
+}
+
+/* Keep body gradient subtle in header areas */
+header.hero-gradient{
+  background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(16,185,129,0.08));
+}
+
+/* Accessibility: increased contrast for primary links in dark mode */
+@media (prefers-color-scheme: dark){
+  .btn { box-shadow: 0 8px 20px rgba(16,24,40,0.6); }
+}
+
+/* Decorative animated background for login (.page-hero) */
+.page-hero{
+  @apply relative overflow-hidden;
+  background: linear-gradient(135deg, rgba(15,23,42,0.6), rgba(51,41,76,0.45));
+}
+
+.page-hero > * {
+  position: relative;
+  z-index: 10;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  left: -20vmax;
+  top: -30vmax;
+  background: radial-gradient(circle at 30% 30%, rgba(59,130,246,0.28), transparent 25%);
+  filter: blur(120px);
+  opacity: 0.9;
+  transform: translate3d(0,0,0);
+  animation: float 9s ease-in-out infinite;
+  z-index: 2;
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  width: 50vmax;
+  height: 50vmax;
+  right: -18vmax;
+  bottom: -28vmax;
+  background: radial-gradient(circle at 70% 70%, rgba(16,185,129,0.22), transparent 22%);
+  filter: blur(100px);
+  opacity: 0.85;
+  transform: translate3d(0,0,0);
+  animation: float 11s ease-in-out infinite reverse;
+  z-index: 2;
+}
+
+/* Soft floating motion keyframe already defined in tailwind config as 'float' — fallback here if needed */
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-6%) translateX(3%); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+
+/* Tailwind-only login enhancements (no JSX changes) */
+@layer components {
+  /* Target the login card that exists in the app layout (max-w-md card) */
+  .page-hero > .max-w-md.card {
+    @apply relative overflow-hidden rounded-xl shadow-2xl text-white;
+    background-image: linear-gradient(135deg, rgba(59,130,246,0.9), rgba(16,185,129,0.85));
+    background-blend-mode: multiply;
+  }
+
+  /* Add a colorful accent gradient using Tailwind color tokens */
+  .page-hero > .max-w-md.card {
+    @apply bg-gradient-to-br from-primary-500 via-mint-500 to-accent-500;
+  }
+
+  /* Subtle decorative overlay using Tailwind utilities */
+  .page-hero > .max-w-md.card::after {
+    content: '';
+    @apply pointer-events-none absolute inset-0 opacity-30 bg-gradient-to-b from-transparent to-black;
+    mix-blend-mode: overlay;
+  }
+
+  /* Hover / lift effect using Tailwind transforms */
+  .page-hero > .max-w-md.card:hover {
+    @apply -translate-y-2 scale-105; /* uses transform utilities */
+    transition: transform .36s cubic-bezier(.2,.8,.2,1), box-shadow .36s ease;
+    box-shadow: 0 30px 60px rgba(2,6,23,0.28);
+  }
+
+  /* Make inputs pop on the colored background (Tailwind classes) */
+  .page-hero input, .page-hero textarea, .page-hero select {
+    @apply bg-slate-800/40 text-slate-100 placeholder-slate-400 border border-amber-400/20 rounded-lg px-3 py-2;
+  }
+
+  .page-hero input:focus, .page-hero textarea:focus, .page-hero select:focus {
+    @apply ring-4 ring-amber-300/20 outline-none;
+  }
+
+  /* Make the primary button bold and animated using Tailwind only */
+  .page-hero .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold text-white shadow-lg;
+    background-image: linear-gradient(90deg, rgba(59,130,246,0.95), rgba(234,179,8,0.95));
+    background-size: 200% 100%;
+  }
+
+  .page-hero .btn:hover {
+    @apply scale-105;
+    transition: transform .28s ease, box-shadow .28s ease, background-position .6s ease;
+    background-position: 100% 0;
+    box-shadow: 0 18px 40px rgba(2,6,23,0.28);
+  }
+
+  /* Emphasize links and secondary actions */
+  .page-hero a, .page-hero .nav-link {
+    @apply text-white/90 hover:text-white underline-offset-2;
+  }
+}
+
+
