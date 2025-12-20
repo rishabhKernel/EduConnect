@@ -2,9 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
+
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
+
 import ParentDashboard from './pages/ParentDashboard';
 import TeacherDashboard from './pages/TeacherDashboard';
 import StudentProgress from './pages/StudentProgress';
@@ -19,12 +21,15 @@ import Profile from './pages/Profile';
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      {/* IMPORTANT: basename is REQUIRED for GitHub Pages */}
+      <Router basename="/EduConnect">
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          
+
+          {/* Parent Dashboard */}
           <Route
             path="/parent/dashboard"
             element={
@@ -33,6 +38,8 @@ function App() {
               </PrivateRoute>
             }
           />
+
+          {/* Teacher Dashboard */}
           <Route
             path="/teacher/dashboard"
             element={
@@ -41,6 +48,8 @@ function App() {
               </PrivateRoute>
             }
           />
+
+          {/* Common Protected Routes */}
           <Route
             path="/progress"
             element={
@@ -49,6 +58,7 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route
             path="/assignments"
             element={
@@ -57,6 +67,7 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route
             path="/attendance"
             element={
@@ -65,6 +76,7 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route
             path="/behavior"
             element={
@@ -73,6 +85,7 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route
             path="/messages"
             element={
@@ -81,6 +94,7 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route
             path="/meetings"
             element={
@@ -89,6 +103,7 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route
             path="/announcements"
             element={
@@ -97,6 +112,7 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route
             path="/profile"
             element={
@@ -105,7 +121,8 @@ function App() {
               </PrivateRoute>
             }
           />
-          
+
+          {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
@@ -114,4 +131,3 @@ function App() {
 }
 
 export default App;
-
