@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/EduConnect/static/css/main.8da83d90.css",
-    "main.js": "/EduConnect/static/js/main.ba30d3e3.js",
+    "main.js": "/EduConnect/static/js/main.7eb79b1e.js",
     "static/media/login.png": "/EduConnect/static/media/login.e48abcccdfdf014c0c0a.png",
     "static/media/register.png": "/EduConnect/static/media/register.bdf66d10ca08ff621e50.png",
     "index.html": "/EduConnect/index.html",
     "main.8da83d90.css.map": "/EduConnect/static/css/main.8da83d90.css.map",
-    "main.ba30d3e3.js.map": "/EduConnect/static/js/main.ba30d3e3.js.map"
+    "main.7eb79b1e.js.map": "/EduConnect/static/js/main.7eb79b1e.js.map"
   },
   "entrypoints": [
     "static/css/main.8da83d90.css",
-    "static/js/main.ba30d3e3.js"
+    "static/js/main.7eb79b1e.js"
   ]
 }
