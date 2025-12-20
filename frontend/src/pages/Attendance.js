@@ -127,14 +127,14 @@ const Attendance = () => {
   return (
     <Layout>
       <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900">
-        <div className="space-y-6 page-hero max-w-6xl mx-auto px-4 py-8">
-          <div className="flex justify-between items-center">
+        <div className="space-y-6 page-hero max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-white">Attendance</h1>
-              <p className="text-white mt-2">Track student attendance records</p>
+              <h1 className="text-2xl sm:text-3xl font-bold text-white">Attendance</h1>
+              <p className="text-white mt-1 sm:mt-2 text-sm sm:text-base">Track student attendance records</p>
             </div>
           {isTeacher && (
-            <div className="flex space-x-2">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => {
                   setEditingRecord(null);
@@ -147,10 +147,11 @@ const Attendance = () => {
                   });
                   setShowModal(true);
                 }}
-                className="btn flex items-center space-x-2"
+                className="btn flex items-center space-x-2 text-sm sm:text-base px-3 sm:px-4 py-2"
               >
-                <FiPlus size={20} />
-                <span>Mark Attendance</span>
+                <FiPlus size={18} />
+                <span className="hidden sm:inline">Mark Attendance</span>
+                <span className="sm:hidden">Mark</span>
               </button>
               <button
                 onClick={() => {
@@ -161,18 +162,19 @@ const Attendance = () => {
                   });
                   setShowBulkModal(true);
                 }}
-                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 flex items-center space-x-2 hover-glow"
+                className="bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-green-700 flex items-center space-x-2 hover-glow text-sm sm:text-base"
               >
-                <FiPlus size={20} />
-                <span>Bulk Attendance</span>
+                <FiPlus size={18} />
+                <span className="hidden sm:inline">Bulk Attendance</span>
+                <span className="sm:hidden">Bulk</span>
               </button>
             </div>
           )}
         </div>
 
         {/* Filters */}
-        <div className="bg-gradient-to-br from-indigo-800/20 via-purple-800/10 to-slate-800/6 rounded-xl shadow-lg p-4 card border border-amber-600/6  backdrop-blur-sm">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div className="bg-gradient-to-br from-indigo-800/20 via-purple-800/10 to-slate-800/6 rounded-xl shadow-lg p-3 sm:p-4 card border border-amber-600/6  backdrop-blur-sm">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
             {isTeacher && (
               <div>
                 <label className="block text-sm font-medium text-white mb-1">Student</label>

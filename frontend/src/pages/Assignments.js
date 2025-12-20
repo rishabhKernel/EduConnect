@@ -101,12 +101,12 @@ const Assignments = () => {
   }, []);
     return (
       <Layout>
-        <div className="min-h-screen p-6 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900">
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-6xl mx-auto space-y-6">
-            <div className="flex justify-between items-center">
+        <div className="min-h-screen p-4 sm:p-6 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900">
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-6xl mx-auto space-y-4 sm:space-y-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
-                <h1 className="text-3xl font-bold text-white">Assignments</h1>
-                <p className="text-slate-300 mt-2">View and manage assignments</p>
+                <h1 className="text-2xl sm:text-3xl font-bold text-white">Assignments</h1>
+                <p className="text-slate-300 mt-1 sm:mt-2 text-sm sm:text-base">View and manage assignments</p>
               </div>
               {isTeacher && (
                 <button
@@ -122,7 +122,7 @@ const Assignments = () => {
                     });
                     setShowModal(true);
                   }}
-                  className="flex items-center space-x-2 bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg shadow-lg transition-transform transform hover:-translate-y-0.5"
+                  className="flex items-center space-x-2 bg-amber-500 hover:bg-amber-600 text-white px-3 sm:px-4 py-2 rounded-lg shadow-lg transition-transform transform hover:-translate-y-0.5 text-sm sm:text-base"
                 >
                   <FiPlus size={18} />
                   <span>Create Assignment</span>

@@ -96,19 +96,19 @@ const TeacherDashboard = () => {
         <div className="absolute bottom-0 left-1/4 h-96 w-96 bg-purple-500 rounded-full blur-3xl opacity-30 animate-pulse" />
 
         {/* Content */}
-        <div className="relative z-10 space-y-10 p-6 animate-fade-in">
+        <div className="relative z-10 space-y-6 sm:space-y-10 p-4 sm:p-6 animate-fade-in">
           {/* Header */}
           <div>
-            <h1 className="text-4xl font-extrabold text-white">
+            <h1 className="text-2xl sm:text-4xl font-extrabold text-white">
               Welcome, {user?.firstName} 👋
             </h1>
-            <p className="text-white/80 mt-2">
+            <p className="text-white/80 mt-2 text-sm sm:text-base">
               Your teaching overview at a glance
             </p>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             <StatCard
               icon={FiUsers}
               title="Total Students"
@@ -154,12 +154,12 @@ const TeacherDashboard = () => {
           </div>
 
           {/* Quick Actions */}
-          <div className="bg-white/15 backdrop-blur-xl rounded-2xl shadow-xl p-6 border border-white/20">
-            <h2 className="text-xl font-bold text-white mb-6">
+          <div className="bg-white/15 backdrop-blur-xl rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 border border-white/20">
+            <h2 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">
               Quick Actions
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
               <QuickAction
                 to="/assignments"
                 icon={FiFileText}
@@ -200,20 +200,20 @@ const StatCard = ({ icon: Icon, title, value, gradient, link }) => {
   return (
     <Link
       to={link}
-      className="group relative rounded-2xl p-6 overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+      className="group relative rounded-xl sm:rounded-2xl p-4 sm:p-6 overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
     >
       <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
       <div className="absolute inset-0 bg-black/20" />
 
       <div className="relative z-10 flex items-center justify-between text-white">
         <div>
-          <p className="text-xs uppercase tracking-widest opacity-90">
+          <p className="text-[10px] sm:text-xs uppercase tracking-widest opacity-90">
             {title}
           </p>
-          <p className="text-4xl font-extrabold mt-2">{value}</p>
+          <p className="text-2xl sm:text-4xl font-extrabold mt-1 sm:mt-2">{value}</p>
         </div>
-        <div className="p-3 rounded-xl bg-white/20 backdrop-blur group-hover:scale-110 transition-transform">
-          <Icon size={26} />
+        <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-white/20 backdrop-blur group-hover:scale-110 transition-transform">
+          <Icon size={20} className="sm:w-6 sm:h-6" />
         </div>
       </div>
     </Link>
@@ -224,17 +224,17 @@ const QuickAction = ({ to, icon: Icon, label, gradient }) => {
   return (
     <Link
       to={to}
-      className="group relative rounded-2xl p-5 overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="group relative rounded-xl sm:rounded-2xl p-4 sm:p-5 overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
       <div className="absolute inset-0 bg-black/20" />
 
       <div className="relative z-10 text-center text-white">
         <Icon
-          size={28}
-          className="mx-auto mb-3 transition-transform duration-300 group-hover:scale-125"
+          size={24}
+          className="mx-auto mb-2 sm:mb-3 transition-transform duration-300 group-hover:scale-125"
         />
-        <p className="text-sm font-semibold tracking-wide">{label}</p>
+        <p className="text-xs sm:text-sm font-semibold tracking-wide">{label}</p>
       </div>
     </Link>
   );

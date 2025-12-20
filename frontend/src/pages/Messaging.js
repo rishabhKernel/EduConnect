@@ -160,9 +160,9 @@ const Messaging = () => {
   return (
     <Layout>
       <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 text-slate-100">
-        <div className="flex h-[calc(100vh-8rem)] page-hero max-w-6xl mx-auto px-4 py-6 gap-4 animate-fade-in">
+        <div className="flex flex-col lg:flex-row h-[calc(100vh-8rem)] page-hero max-w-6xl mx-auto px-2 sm:px-4 py-4 sm:py-6 gap-4 animate-fade-in">
         {/* Conversations List */}
-        <div className="w-1/3 border border-amber-800/12 bg-gradient-to-br from-indigo-800/20 to-purple-900/10 rounded-xl shadow-2xl overflow-y-auto card text-slate-100 animate-slide-up">
+        <div className="w-full lg:w-1/3 h-48 lg:h-auto border border-amber-800/12 bg-gradient-to-br from-indigo-800/20 to-purple-900/10 rounded-xl shadow-2xl overflow-y-auto card text-slate-100 animate-slide-up">
           <div className="p-4 border-b border-amber-800/12 bg-gradient-to-r from-indigo-700 to-purple-700 text-white rounded-t-xl">
             <h2 className="text-lg font-semibold">Conversations</h2>
           </div>

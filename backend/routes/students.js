@@ -63,10 +63,16 @@ router.get('/:id', auth, async (req, res) => {
 
 // @route   POST /api/students
 // @desc    Create new student
-// @access  Private (Admin/Teacher)
-router.post('/', auth, authorize('admin', 'teacher'), async (req, res) => {
+// @access  Private (Admin/Teacher/Parent)
+router.post('/', auth, async (req, res) => {
   try {
     const { firstName, lastName, studentId, dateOfBirth, grade, section, parentIds, subjects } = req.body;
+
+    // For parents, automatically associate themselves
+    let finalParentIds = parentIds || [];
+    if (req.user.role === 'parent') {
+      finalParentIds = [req.user._id];
+    }
 
     const student = new Student({
       firstName,
@@ -75,16 +81,16 @@ router.post('/', auth, authorize('admin', 'teacher'), async (req, res) => {
       dateOfBirth,
       grade,
       section,
-      parentIds: parentIds || [],
+      parentIds: finalParentIds,
       subjects: subjects || []
     });
 
     await student.save();
 
     // Update parent users with student association
-    if (parentIds && parentIds.length > 0) {
+    if (finalParentIds && finalParentIds.length > 0) {
       await User.updateMany(
-        { _id: { $in: parentIds } },
+        { _id: { $in: finalParentIds } },
         { $addToSet: { associatedIds: student._id } }
       );
     }

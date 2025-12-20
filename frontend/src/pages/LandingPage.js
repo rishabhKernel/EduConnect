@@ -153,11 +153,11 @@ const LandingPage = () => {
               <a href="#stats" className="text-slate-300 hover:text-cyan-300 transition">Stats</a>
               <a href="#testimonials" className="text-slate-300 hover:text-cyan-300 transition">Reviews</a>
             </nav>
-            <div className="flex items-center space-x-4">
-              <Link to="/login" className="text-cyan-300 hover:text-cyan-200 font-medium transition">
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              <Link to="/login" className="text-cyan-300 hover:text-cyan-200 font-medium transition text-sm sm:text-base">
                 Login
               </Link>
-              <Link to="/register" className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-medium shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105 transition-all duration-300">
+              <Link to="/register" className="px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-medium shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105 transition-all duration-300 text-sm sm:text-base">
                 Get Started
               </Link>
             </div>
@@ -165,14 +165,14 @@ const LandingPage = () => {
         </header>
 
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center px-4 pt-20">
+        <section className="min-h-screen flex items-center justify-center px-4 pt-24 pb-8">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 border border-cyan-500/30 mb-8">
-              <FiStar className="text-amber-400 mr-2" size={16} />
-              <span className="text-cyan-200 text-sm font-medium">Trusted by 10,000+ Schools Worldwide</span>
+            <div className="inline-flex items-center px-3 sm:px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 border border-cyan-500/30 mb-6 sm:mb-8">
+              <FiStar className="text-amber-400 mr-2" size={14} />
+              <span className="text-cyan-200 text-xs sm:text-sm font-medium">Trusted by 10,000+ Schools Worldwide</span>
             </div>
             
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
               <span className="text-white">Connect, Track &</span>
               <br />
               <span className="bg-gradient-to-r from-cyan-400 via-emerald-400 to-amber-400 bg-clip-text text-transparent animate-gradient">
@@ -180,32 +180,32 @@ const LandingPage = () => {
               </span>
             </h2>
             
-            <p className="text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl text-slate-300 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-2">
               The ultimate platform bridging parents and teachers with seamless communication, 
               real-time progress tracking, and powerful insights to help every student thrive.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-              <Link to="/register" className="group px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 text-white font-semibold text-lg shadow-2xl shadow-cyan-500/40 hover:shadow-cyan-500/60 hover:scale-105 transition-all duration-300 flex items-center">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-16">
+              <Link to="/register" className="group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 text-white font-semibold text-base sm:text-lg shadow-2xl shadow-cyan-500/40 hover:shadow-cyan-500/60 hover:scale-105 transition-all duration-300 flex items-center justify-center">
                 Start Free Trial
                 <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link to="/login" className="px-8 py-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/20 text-white font-semibold text-lg hover:bg-white/10 hover:border-cyan-400/40 transition-all duration-300">
+              <Link to="/login" className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/20 text-white font-semibold text-base sm:text-lg hover:bg-white/10 hover:border-cyan-400/40 transition-all duration-300 text-center">
                 Sign In
               </Link>
             </div>
 
             {/* Stats preview */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto">
               {[
                 { value: '10K+', label: 'Schools' },
                 { value: '500K+', label: 'Students' },
                 { value: '98%', label: 'Satisfaction' },
                 { value: '24/7', label: 'Support' }
               ].map((stat, i) => (
-                <div key={i} className="p-4 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">{stat.value}</div>
-                  <div className="text-slate-400 text-sm">{stat.label}</div>
+                <div key={i} className="p-3 sm:p-4 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
+                  <div className="text-xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">{stat.value}</div>
+                  <div className="text-slate-400 text-xs sm:text-sm">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -213,19 +213,19 @@ const LandingPage = () => {
         </section>
 
         {/* Features Section */}
-        <section id="features" className="py-24 px-4">
+        <section id="features" className="py-16 sm:py-24 px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Features</span>
-              <h3 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            <div className="text-center mb-12 sm:mb-16">
+              <span className="text-cyan-400 font-semibold text-xs sm:text-sm uppercase tracking-wider">Features</span>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4 mb-4 sm:mb-6">
                 Everything You Need
               </h3>
-              <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto px-2">
                 Powerful tools designed to enhance communication and track student success
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               <FeatureCard icon={FiTrendingUp} title="Progress Tracking" description="Monitor academic performance with detailed analytics, grade tracking, and visual progress reports." color="cyan" />
               <FeatureCard icon={FiUsers} title="Attendance Management" description="Real-time attendance tracking with instant notifications and comprehensive reports." color="emerald" />
               <FeatureCard icon={FiMail} title="Secure Messaging" description="End-to-end encrypted communication between parents and teachers." color="purple" />
@@ -237,21 +237,21 @@ const LandingPage = () => {
         </section>
 
         {/* Stats Section */}
-        <section id="stats" className="py-24 px-4">
+        <section id="stats" className="py-16 sm:py-24 px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="rounded-3xl p-12 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 shadow-2xl">
-              <div className="grid md:grid-cols-3 gap-12 text-center">
+            <div className="rounded-2xl sm:rounded-3xl p-6 sm:p-12 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 shadow-2xl">
+              <div className="grid sm:grid-cols-3 gap-8 sm:gap-12 text-center">
                 <div>
-                  <div className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-2">95%</div>
-                  <div className="text-slate-300">Parent Engagement Increase</div>
+                  <div className="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-2">95%</div>
+                  <div className="text-slate-300 text-sm sm:text-base">Parent Engagement Increase</div>
                 </div>
                 <div>
-                  <div className="text-5xl font-bold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent mb-2">2x</div>
-                  <div className="text-slate-300">Faster Communication</div>
+                  <div className="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent mb-2">2x</div>
+                  <div className="text-slate-300 text-sm sm:text-base">Faster Communication</div>
                 </div>
                 <div>
-                  <div className="text-5xl font-bold bg-gradient-to-r from-amber-400 to-rose-400 bg-clip-text text-transparent mb-2">30%</div>
-                  <div className="text-slate-300">Better Student Outcomes</div>
+                  <div className="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-amber-400 to-rose-400 bg-clip-text text-transparent mb-2">30%</div>
+                  <div className="text-slate-300 text-sm sm:text-base">Better Student Outcomes</div>
                 </div>
               </div>
             </div>
@@ -259,13 +259,13 @@ const LandingPage = () => {
         </section>
 
         {/* Testimonials */}
-        <section id="testimonials" className="py-24 px-4">
+        <section id="testimonials" className="py-16 sm:py-24 px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Testimonials</span>
-              <h3 className="text-4xl font-bold text-white mt-4">What People Say</h3>
+            <div className="text-center mb-12 sm:mb-16">
+              <span className="text-cyan-400 font-semibold text-xs sm:text-sm uppercase tracking-wider">Testimonials</span>
+              <h3 className="text-3xl sm:text-4xl font-bold text-white mt-4">What People Say</h3>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
               {[
                 { name: 'Priya Sharma', role: 'Teacher', text: 'EduConnect has transformed how I communicate with parents. The progress tracking is incredibly intuitive!' },
                 { name: 'Rahul Mehta', role: 'Parent', text: 'I love being able to track my children\'s progress in real-time. The app keeps me connected with their education.' },
@@ -294,24 +294,24 @@ const LandingPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 px-4">
+        <section className="py-16 sm:py-24 px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="rounded-3xl p-12 md:p-16 text-center bg-gradient-to-br from-cyan-500/20 via-emerald-500/20 to-amber-500/20 backdrop-blur-2xl border border-white/20 shadow-2xl relative overflow-hidden">
+            <div className="rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 text-center bg-gradient-to-br from-cyan-500/20 via-emerald-500/20 to-amber-500/20 backdrop-blur-2xl border border-white/20 shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-emerald-500/10 animate-pulse"></div>
               <div className="relative z-10">
-                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
                   Ready to Transform Education?
                 </h3>
-                <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+                <p className="text-base sm:text-xl text-slate-300 mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
                   Join thousands of schools already using EduConnect to improve student outcomes.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Link to="/register" className="group px-10 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-semibold text-lg shadow-2xl shadow-cyan-500/40 hover:shadow-cyan-500/60 hover:scale-105 transition-all duration-300 flex items-center">
+                  <Link to="/register" className="group w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-semibold text-base sm:text-lg shadow-2xl shadow-cyan-500/40 hover:shadow-cyan-500/60 hover:scale-105 transition-all duration-300 flex items-center justify-center">
                     Create Free Account
                     <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
-                <div className="mt-8 flex items-center justify-center gap-6 text-slate-400 text-sm">
+                <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-slate-400 text-xs sm:text-sm">
                   <span className="flex items-center"><FiCheckCircle className="text-emerald-400 mr-2" /> Free 14-day trial</span>
                   <span className="flex items-center"><FiCheckCircle className="text-emerald-400 mr-2" /> No credit card required</span>
                 </div>
@@ -321,9 +321,9 @@ const LandingPage = () => {
         </section>
 
         {/* Footer */}
-        <footer className="py-16 px-4 bg-slate-950/80 border-t border-white/10">
+        <footer className="py-12 sm:py-16 px-4 bg-slate-950/80 border-t border-white/10">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
               {/* Brand */}
               <div className="lg:col-span-1">
                 <div className="flex items-center space-x-2 mb-4">
