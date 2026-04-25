@@ -280,16 +280,14 @@ The application is deployed on:
 
 ### Screenshot 1: Docker Image Build
 **Command:** `docker build -t educonnect-backend ./backend`
+![Docker Build Screenshot](./screenshots/docker-build.png)
 
-### Screenshot 2: Docker Compose Up (Running Container)
-**Command:** `docker-compose up --build`
+### Screenshot 2: Running Container
+![Docker PS Output](./screenshots/docker-compose-up.png)
 
 ### Screenshot 3: Docker PS Output
 **Command:** `docker ps`
-
-## 📝 License
-
-ISC
+![Docker PS Output](./screenshots/docker-ps-output.png)
 
 ## 👨‍💻 Author
 
